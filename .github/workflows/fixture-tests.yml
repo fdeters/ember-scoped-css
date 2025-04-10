@@ -13,7 +13,11 @@ concurrency:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        os: ['windows-latest', 'ubuntu-latest']
 
     steps:
       - uses: wyvox/action@v1
